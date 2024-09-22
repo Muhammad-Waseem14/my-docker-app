@@ -1,0 +1,13 @@
+version: '4.27'
+services:
+  api:
+    build: ./app
+    container_name: app_c
+    ports:
+      - '9000:9000'
+    volumes:
+      - ./app:/myapp
+      - myapp_node_modules:/myapp/node_modules
+
+volumes:
+  myapp_node_modules:
