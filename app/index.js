@@ -1,9 +1,14 @@
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.json({ message: "Hello from docker...!" });
 });
 
-app.listen(9000, () => console.log("Server is running!"));
+const port = process.env.PORT || 9000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
